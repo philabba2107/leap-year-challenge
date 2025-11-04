@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leap Year Challenge 🗓️</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,13 +11,18 @@
     <h1>🗓️ Leap Year Challenge</h1>
     <p>Enter a year to find out if it’s a <strong>Leap Year</strong> or not!</p>
 
-    <input type="number" id="yearInput" placeholder="Enter a year">
-    <button id="checkBtn" onclick="checkLeapYear()">Check</button>
-    <button id="resetBtn" onclick="resetGame()" style="display: none;">Play Again 🔄</button>
+    <div class="input-group">
+      <input type="number" id="yearInput" placeholder="Enter a year">
+      <button id="checkBtn" onclick="checkLeapYear()">Check</button>
+      <button id="resetBtn" onclick="resetGame()">Play Again 🔄</button>
+    </div>
 
     <p id="output"></p>
     <div id="emoji"></div>
   </div>
+
+  <!-- Confetti effect -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script src="script.js"></script>
 </body>
