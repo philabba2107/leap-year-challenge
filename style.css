@@ -1,3 +1,4 @@
+/* General styling */
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #7b4397, #dc2430);
@@ -7,17 +8,32 @@ body {
   padding-top: 100px;
 }
 
+/* Container card */
 .container {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 40px 30px;
   display: inline-block;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.02);
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2.3em;
   margin-bottom: 10px;
+}
+
+p {
+  font-size: 1em;
+}
+
+/* Input and buttons */
+.input-group {
+  margin-top: 15px;
 }
 
 input {
@@ -25,8 +41,10 @@ input {
   font-size: 18px;
   border: none;
   border-radius: 8px;
-  width: 200px;
-  margin: 10px;
+  width: 180px;
+  margin-right: 10px;
+  text-align: center;
+  outline: none;
 }
 
 button {
@@ -34,24 +52,37 @@ button {
   color: white;
   border: none;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
-  margin: 5px;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background-color: #ff1e56;
+  transform: scale(1.05);
 }
 
+/* Output section */
 #output {
   font-size: 24px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 #emoji {
   font-size: 40px;
   margin-top: 10px;
+}
+
+/* Reset button animation */
+#resetBtn {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#resetBtn.show {
+  display: inline-block;
+  opacity: 1;
 }
