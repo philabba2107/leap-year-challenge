@@ -39,7 +39,16 @@ function checkLeapYear() {
   // Disable input and show reset button
   document.getElementById("yearInput").disabled = true;
   checkBtn.style.display = "none";
-  resetBtn.style.display = "inline-block";
+  resetBtn.classList.add("show");
+
+  // 🎊 Confetti for Leap Year
+  if (message === "Leap year.") {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }
 }
 
 function resetGame() {
@@ -49,13 +58,28 @@ function resetGame() {
   const checkBtn = document.getElementById("checkBtn");
   const resetBtn = document.getElementById("resetBtn");
 
+  // Reset values
   yearInput.value = "";
   output.innerText = "";
   emoji.innerText = "";
 
+  // Re-enable input
   yearInput.disabled = false;
-  checkBtn.style.display = "inline-block";
-  resetBtn.style.display = "none";
 
+  // Hide reset button smoothly
+  resetBtn.classList.remove("show");
+  setTimeout(() => {
+    resetBtn.style.display = "none";
+    checkBtn.style.display = "inline-block";
+  }, 400);
+
+  // Focus cursor for new entry
   yearInput.focus();
 }
+
+// ✅ Allow pressing Enter to check
+document.getElementById("yearInput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    checkLeapYear();
+  }
+});
