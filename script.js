@@ -1,20 +1,26 @@
 function checkLeapYear() {
-  const year = document.getElementById("yearInput").value;
+  const year = document.getElementById("yearInput").value.trim(); // 🟢 trim to ignore spaces
   const output = document.getElementById("output");
   const emoji = document.getElementById("emoji");
   const checkBtn = document.getElementById("checkBtn");
   const resetBtn = document.getElementById("resetBtn");
 
+  // 🟢 Case 1: Handle empty input properly
   if (year === "") {
     output.innerText = "Please enter a year!";
     emoji.innerText = "🤔";
+
+    // 🟢 Disable input + show reset button even for error
+    document.getElementById("yearInput").disabled = true;
+    checkBtn.style.display = "none";
+    resetBtn.classList.add("show");
     return;
   }
 
+  // Normal logic if year provided
   let message = "";
   let symbol = "";
 
-  // Leap year logic
   if (year % 4 === 0) {
     if (year % 100 === 0) {
       if (year % 400 === 0) {
